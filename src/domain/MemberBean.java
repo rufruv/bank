@@ -1,7 +1,7 @@
 package domain;
 
 public class MemberBean {
-protected String ssn, name, uid, password, profileImg, phone, email;
+protected String ssn, name, uid, password, profileImg, phone, email, rank;
 	
 	public void setUid(String uid){
 		this.uid = uid ;
@@ -39,12 +39,17 @@ protected String ssn, name, uid, password, profileImg, phone, email;
 	public String getSsn(){
 		return ssn ; 
 	}
-	
 	public void setName(String name){
 		this.name = name ;
 	}
 	public String getName(){
 		return name ;
+	}
+	public void setRank(String rank) {
+		this.rank = rank;
+	}
+	public String getRank() {
+		return rank;
 	}
 	
 	public String calcGender(String ssn){

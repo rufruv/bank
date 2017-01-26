@@ -3,17 +3,17 @@ package controller;
 /*import constants.Bank;*/
 import domain.MemberBean;
 import domain.AccountBean;
-import service.BankService;
-import serviceImpl.BankServiceImpl;
+import service.AccountService;
+import serviceImpl.AccountServiceImpl;
 import javax.swing.*;
 
-public class Controller {
+public class CustomerController {
 	
 	public void start(){
 		String tempSsn = "";
 		MemberBean mem = null;  // 터만 잡고 공간은 없다 ( initialize 아님)     
 		AccountBean account = null;
-		BankService service = new BankServiceImpl();
+		AccountService service = new AccountServiceImpl();
 		
 		while(true){
 			switch(JOptionPane.showInputDialog("0.종료 1.회원등록 2.통장개설 3.입금 4.출금 5.조회 6.해지")){

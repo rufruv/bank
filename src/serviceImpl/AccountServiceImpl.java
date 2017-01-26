@@ -4,12 +4,12 @@ import util.RandomGenerator;
 import java.util.Calendar;
 import constants.Account;
 import domain.AccountBean;
-import service.BankService;
+import service.AccountService;
 
-public class BankServiceImpl implements BankService{
+public class AccountServiceImpl implements AccountService{
 	AccountBean[] list;  // 사용하고 나서도 유지되는것 (association:연관관계)
 	
-	public BankServiceImpl() {
+	public AccountServiceImpl() {
 		list = new AccountBean[10000];
 	}
 	
@@ -52,5 +52,41 @@ public class BankServiceImpl implements BankService{
 			result=Account.WITHDRAW_SUCCESS;
 		}
 		return result;
+	}
+
+	@Override
+	public AccountBean findByAccountNo(String accountNo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public AccountBean findByName(String name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int countByName(String name) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public AccountBean[] list() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int count() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void drop(String accountNo) {
+		// TODO Auto-generated method stub
+		
 	}
 }
