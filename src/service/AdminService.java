@@ -12,7 +12,6 @@ public interface AdminService {
 	 */
 	public MemberBean findById(String id);
 	public MemberBean[] findByName(String name);
-	public int countByName(String name);
 	public MemberBean[] list();
 	public int count();
 	/**
@@ -22,6 +21,10 @@ public interface AdminService {
 	/**
 	 * DELETE: DELETE
 	 */
-	public void remove(MemberBean member);
+	public void remove(String id);
+	// util
+	// validation
+	public boolean exist(String keyword);
+	public int countByName(String name);
 }
 

@@ -4,15 +4,15 @@ import domain.MemberBean;
 import service.AdminService;
 
 public class AdminServiceImpl implements AdminService{
-	private MemberBean member; //getter&setter 만들지 여부는 선택사항 
+	private MemberBean member; // 필드안의 변수는 getter&setter 만들지 여부는 선택사항 
 	private MemberBean[] arr;
 	private int count;
 	
 	public AdminServiceImpl() {
 		member = new MemberBean();
-		arr = new MemberBean[count];
 		count = 0;
-	}
+		arr = new MemberBean[count]; // 주소값만 있는 상태 / 객체를 담을수는 없는 상태(null)
+		}
 	@Override
 	public void regist(MemberBean member) {
 		// 회원정보를 입력한 후 배열에 저장하기
@@ -24,24 +24,42 @@ public class AdminServiceImpl implements AdminService{
 			}*/
 			arr = temp;
 		}
-		arr[count]=member;
-		count++;
+		/*arr[count]=member;
+		count++;*/
+		arr[count++]=member;
 	}
 	@Override
 	public MemberBean findById(String id) {
-		// TODO Auto-generated method stub
-		return null;
+		MemberBean member = new MemberBean();
+		for(int i=0; i<count; i++){
+			if(id.equals(arr[i].getUid())){
+				member = arr[i];
+				break;
+			}
+		}
+		return member;
 	}
 	@Override
 	public MemberBean[] findByName(String name) {
-		// TODO Auto-generated method stub
-		return null;
+		MemberBean[] list = new MemberBean[countByName(name)];
+		for(int i=0; i<count; i++){
+			if(name.equals(arr[i].getName())){
+				list[i] = arr[i];
+			}
+		}
+		return list;
 	}
 	@Override
 	public int countByName(String name) {
-		// TODO Auto-generated method stub
-		return 0;
+		int nameCount = 0;
+		for(int i=0; i<count; i++){
+			if(name.equals(arr[i].getName())){
+				nameCount++;
+			}
+		}
+		return nameCount;
 	}
+	
 	@Override
 	public MemberBean[] list() {
 		// 전체목록 출력 
@@ -58,12 +76,34 @@ public class AdminServiceImpl implements AdminService{
 	}
 	@Override
 	public void changeRank(MemberBean member) {
-		// TODO Auto-generated method stub
+		for(int i=0;i<count;i++){
+			if(member.getUid().equals(arr[i].getUid())){
+				arr[i].setRank(member.getRank());
+				break;
+			}
+		}
 		
 	}
 	@Override
-	public void remove(MemberBean member) {
-		// TODO Auto-generated method stub
-		
+	public void remove(String id) {
+		for(int i=0;i<count;i++){
+			if(id.equals(arr[i].getUid())){
+				arr[i] = arr[count-1];
+				arr[count-1] = null;
+				count--;
+				break;
+			}
+		}
+	}
+	@Override
+	public boolean exist(String keyword) { //boolean을 줬다는건 어디의 컨디션에 들어가라는 얘기
+		boolean check = false;
+		for(int i=0; i<count; i++){
+			if(keyword.equals(arr[i].getUid())){
+				check = true;
+				
+			}
+		}
+		return check;
 	}
 }

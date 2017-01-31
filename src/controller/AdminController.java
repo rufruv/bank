@@ -2,7 +2,6 @@ package controller;
 
 import javax.swing.JOptionPane;
 
-/*import domain.AccountBean;*/
 import domain.MemberBean;
 import service.AdminService;
 import serviceImpl.AdminServiceImpl;
@@ -28,10 +27,25 @@ public class AdminController {
 				// 현재회원수는 3명입니다. 
 				break;
 			case "2": 
-				
+				String keyword = JOptionPane.showInputDialog("ID?");
+				if(service.exist(keyword)){
+					JOptionPane.showMessageDialog(null, service.findById(keyword).toString());
+				}else{
+					JOptionPane.showMessageDialog(null, "아이디가 존재하지 않습니다!!");
+				}
 				break;
 			case "3":
-				
+				String temp = JOptionPane.showInputDialog("이름?");
+				if(service.countByName(temp)!=0){
+					MemberBean[] list = service.findByName(temp);
+					String tempArr="";
+					for(i=0;i<list.length ; i++ ){
+						tempArr+=list[i].toString()+"\n";
+					}
+					JOptionPane.showMessageDialog(null, tempArr);
+				}else{
+					JOptionPane.showMessageDialog(null, "해당하는 정보가 없습니다.");
+				}
 				break;
 			case "4": 
 				if(service.count()==0){
@@ -46,10 +60,22 @@ public class AdminController {
 				}
 				break;
 			case "5": 
-				
+				String temp2 = JOptionPane.showInputDialog("ID, RANK?");
+				String[] tempArr = temp2.split(",");
+				member.setUid(tempArr[0]);
+				member.setRank(tempArr[1]);
+				service.changeRank(member);
 				break;
 			case "6": 
-				
+				String del = JOptionPane.showInputDialog("ID?");
+				if(service.exist(del)){
+					service.remove(del);
+					JOptionPane.showMessageDialog(null, "탈퇴처리완료!.");
+				}else{
+					JOptionPane.showMessageDialog(null, "없는 아이디입니다.");
+				}
+				/*member.setUid(JOptionPane.showInputDialog("ID"));
+				service.remove(id);*/
 				break;
 			}
 		}
