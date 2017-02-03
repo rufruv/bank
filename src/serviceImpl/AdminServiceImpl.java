@@ -4,35 +4,33 @@ import domain.MemberBean;
 import service.AdminService;
 
 public class AdminServiceImpl implements AdminService{
-	private MemberBean member; // 필드안의 변수는 getter&setter 만들지 여부는 선택사항 
-	private MemberBean[] arr;
 	private int count;
+	private MemberBean[] arr;
 	
 	public AdminServiceImpl() {
-		member = new MemberBean();
 		count = 0;
-		arr = new MemberBean[count]; // 주소값만 있는 상태 / 객체를 담을수는 없는 상태(null)
+		arr = new MemberBean[count]; // 주소값만 있는 상태&객체를 담을수는 없는 상태(null)
 		}
 	@Override
 	public void regist(MemberBean member) {
 		// 회원정보를 입력한 후 배열에 저장하기
 		if(count == arr.length){
 			MemberBean[] temp = new MemberBean[count+10];
-			System.arraycopy(arr, 0, temp, 0, count);
-			/*for(int i=0; i<count; i++){
+			/*System.arraycopy(arr, 0, temp, 0, count);*/
+			for(int i=0; i<count; i++){
 				temp[i] = arr[i];
-			}*/
+			}
 			arr = temp;
 		}
-		/*arr[count]=member;
-		count++;*/
-		arr[count++]=member;
+		arr[count]=member;
+		count++;
+		/*arr[count++]=member;*/
 	}
 	@Override
-	public MemberBean findById(String id) {
+	public MemberBean findById(String keyword) {
 		MemberBean member = new MemberBean();
 		for(int i=0; i<count; i++){
-			if(id.equals(arr[i].getUid())){
+			if(keyword.equals(arr[i].getUid())){
 				member = arr[i];
 				break;
 			}
@@ -62,12 +60,6 @@ public class AdminServiceImpl implements AdminService{
 	
 	@Override
 	public MemberBean[] list() {
-		// 전체목록 출력 
-		/*if(arr.length==0){
-			member.setName("회원이 존재하지 않습니다.");
-			arr = new MemberBean[1];
-			arr[0] = member;
-		}*/
 		return arr;
 	}
 	@Override
