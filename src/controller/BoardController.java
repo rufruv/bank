@@ -109,9 +109,6 @@ public class BoardController {
 		}
 		System.out.println("삭제후 :"+list);
 		// 삭제가 끝나면 해당글이 없다고 출력함
-		set = new HashSet<ArticleBean>();
-		for(int i=0;i<list.size();i++){
-			if("1".equals(list.get(i).getSeq())){}
 		}
 	}
-}
+
