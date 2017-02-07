@@ -27,7 +27,7 @@ public class AdminController2 {
 				// 현재회원수는 3명입니다. 
 				break;
 			case "2": 
-				String keyword = JOptionPane.showInputDialog("ID?");
+			/*	String keyword = JOptionPane.showInputDialog("ID?");
 				if(service.exist(keyword)){
 					JOptionPane.showMessageDialog(null, service.findById(keyword).toString());
 				}else{
@@ -74,9 +74,9 @@ public class AdminController2 {
 				}else{
 					JOptionPane.showMessageDialog(null, "없는 아이디입니다.");
 				}
-				/*member.setUid(JOptionPane.showInputDialog("ID"));
-				service.remove(id);*/
-				break;
+				member.setUid(JOptionPane.showInputDialog("ID"));
+				service.remove(id);
+				break;*/
 			}
 		}
 	}
