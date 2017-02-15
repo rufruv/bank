@@ -1,7 +1,9 @@
 package domain;
 
-public class AccountBean {
-	
+import java.io.Serializable;
+
+public class AccountBean implements Serializable{      // Object Stream을 쓰기위해!
+	private static final long serialVersionUID = 1L;   // JSP에서 사용
 	protected String uid, accountType, createDate, money, accountNo ;
 	
 	public void setUid(String uid) {

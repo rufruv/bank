@@ -60,7 +60,7 @@ public class BoardServiceImpl implements BoardService{
 
 	@Override
 	public void delete(ArticleBean param) {
-		Iterator<ArticleBean> it = list.iterator();
+		Iterator<ArticleBean> it = list.iterator(); // Iterator<ArticleBean>->어떤 객체를 죽일지 지정해주면 더 빠르다!
 		while(it.hasNext()){
 			if(it.next().getSeq().equals(param.getSeq())){
 				it.remove();

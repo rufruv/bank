@@ -3,14 +3,14 @@ package controller;
 import javax.swing.JOptionPane;
 
 import domain.MemberBean;
-import service.AdminService;
-import serviceImpl.AdminServiceImpl;
+import service.AdminService2;
+import serviceImpl.AdminServiceImpl2;
 
 public class AdminController2 {
 	
 	public void start(){
 		MemberBean member = null;  
-		AdminService service = new AdminServiceImpl(); // 다형성 (부모타입 참조변수로 자식타입의 인스턴스 생성)
+		AdminService2 service = new AdminServiceImpl2(); // 다형성 (부모타입 참조변수로 자식타입의 인스턴스 생성)
 		int i = 0;
 		
 		while(true){
@@ -21,13 +21,13 @@ public class AdminController2 {
 				member = new MemberBean(); 
 				String[] strArr = JOptionPane.showInputDialog("이름,ID").split(",");
 				member.setName(strArr[0]);
-				member.setUid(strArr[1]);
+				member.setId(strArr[1]);
 				service.regist(member);
 				JOptionPane.showMessageDialog(null, "현재회원수는"+ service.count()+"입니다");
 				// 현재회원수는 3명입니다. 
 				break;
 			case "2": 
-			/*	String keyword = JOptionPane.showInputDialog("ID?");
+				String keyword = JOptionPane.showInputDialog("ID?");
 				if(service.exist(keyword)){
 					JOptionPane.showMessageDialog(null, service.findById(keyword).toString());
 				}else{
@@ -62,7 +62,7 @@ public class AdminController2 {
 			case "5": 
 				String temp2 = JOptionPane.showInputDialog("ID, RANK?");
 				String[] tempArr = temp2.split(",");
-				member.setUid(tempArr[0]);
+				member.setId(tempArr[0]);
 				member.setRank(tempArr[1]);
 				service.changeRank(member);
 				break;
@@ -74,9 +74,9 @@ public class AdminController2 {
 				}else{
 					JOptionPane.showMessageDialog(null, "없는 아이디입니다.");
 				}
-				member.setUid(JOptionPane.showInputDialog("ID"));
-				service.remove(id);
-				break;*/
+				member.setId(JOptionPane.showInputDialog("ID"));
+				service.remove(del);
+				break;
 			}
 		}
 	}

@@ -20,7 +20,7 @@ public class CustomerController {
 			case "0": return;
 			case "1": 
 				mem = new MemberBean(); 
-				mem.setUid(JOptionPane.showInputDialog("아이디"));
+				mem.setId(JOptionPane.showInputDialog("아이디"));
 				mem.setName(JOptionPane.showInputDialog("이름"));
 				while(true){
 					tempSsn = JOptionPane.showInputDialog("주민번호(앞자리7자리까지만)?");
@@ -48,7 +48,7 @@ public class CustomerController {
 				 */
 				while(true){
 					uid = JOptionPane.showInputDialog("아이디?");
-					if(mem.getUid().equals(uid)){
+					if(mem.getId().equals(uid)){
 						break;
 					}else{
 						JOptionPane.showMessageDialog(null, "아이디를 다시 입력하시오");

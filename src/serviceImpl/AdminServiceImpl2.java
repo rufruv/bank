@@ -30,7 +30,7 @@ public class AdminServiceImpl2 implements AdminService2{
 	public MemberBean findById(String keyword) {
 		MemberBean member = new MemberBean();
 		for(int i=0; i<count; i++){
-			if(keyword.equals(arr[i].getUid())){
+			if(keyword.equals(arr[i].getId())){
 				member = arr[i];
 				break;
 			}
@@ -69,7 +69,7 @@ public class AdminServiceImpl2 implements AdminService2{
 	@Override
 	public void changeRank(MemberBean member) {
 		for(int i=0;i<count;i++){
-			if(member.getUid().equals(arr[i].getUid())){
+			if(member.getId().equals(arr[i].getId())){
 				arr[i].setRank(member.getRank());
 				break;
 			}
@@ -79,7 +79,7 @@ public class AdminServiceImpl2 implements AdminService2{
 	@Override
 	public void remove(String id) {
 		for(int i=0;i<count;i++){
-			if(id.equals(arr[i].getUid())){
+			if(id.equals(arr[i].getId())){
 				arr[i] = arr[count-1];
 				arr[count-1] = null;
 				count--;
@@ -91,7 +91,7 @@ public class AdminServiceImpl2 implements AdminService2{
 	public boolean exist(String keyword) { //boolean을 줬다는건 어디의 컨디션에 들어가라는 얘기
 		boolean check = false;
 		for(int i=0; i<count; i++){
-			if(keyword.equals(arr[i].getUid())){
+			if(keyword.equals(arr[i].getId())){
 				check = true;
 				
 			}

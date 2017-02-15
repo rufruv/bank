@@ -11,13 +11,13 @@ public class AdminServiceImpl implements AdminService{
 		}
 	@Override
 	public void regist(MemberBean member) {
-		map.put(member.getUid(), member);
+		map.put(member.getId(), member);
 	}
 	@Override
 	public MemberBean findById(String id) {
 		/*MemberBean mem = new MemberBean();
 		for(MemberBean m:list()){
-			if(id.equals(m.getUid())){
+			if(id.equals(m.getId())){
 				mem = m;
 				break;
 			}
@@ -51,7 +51,7 @@ public class AdminServiceImpl implements AdminService{
 	@Override
 	public void update(MemberBean member) {
 		for(MemberBean m:memberlist()){
-			if(member.getUid().equals(m.getUid())){
+			if(member.getId().equals(m.getId())){
 				String a = (member.getName().equals(""))?m.getName():member.getName();
 				String b = (member.getPassword().equals(""))?m.getPassword():member.getPassword();
 				String c = (member.getProfileImg().equals(""))?m.getProfileImg():member.getProfileImg();

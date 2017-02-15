@@ -27,7 +27,7 @@ public class AdminController {
 				case MEM_ADD:
 					member = new MemberBean();
 					String[] memberInfoArr=input("아이디, 비밀번호, 이름, 주민등록번호, 이메일, 프로필사진, 휴대폰번호").split(" ");
-					member.setUid((memberInfoArr[0]));
+					member.setId((memberInfoArr[0]));
 					member.setPassword((memberInfoArr[1]));
 					member.setName((memberInfoArr[2]));
 					member.setSsn((memberInfoArr[3]));
@@ -51,7 +51,7 @@ public class AdminController {
 					break;
 				case RANK:
 					member=new MemberBean();
-					member.setUid(input("변경할 아이디를 입력하세요."));
+					member.setId(input("변경할 아이디를 입력하세요."));
 					member.setName(input("변경할 이름을 입력하세요."));
 					member.setPhone(input("변경할 휴대폰 번호를 입력하세요."));
 					member.setEmail(input("변경할 email를 입력하세요."));

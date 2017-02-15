@@ -12,6 +12,6 @@ public class adminBean extends MemberBean{
 	@Override
 	public String toString() {
 		return String.format("%s(%s)[ %s | **** | %s | %s | 관리자 ]", 
-				             name, ssn, uid, phone, email);
+				             name, ssn, id, phone, email);
 	}
 }
